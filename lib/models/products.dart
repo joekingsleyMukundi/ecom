@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Product {
+class Product with ChangeNotifier {
   final id;
   final title;
   final description;
@@ -15,4 +15,9 @@ class Product {
     @required this.imageUrl,
     this.isFavarite = false,
   });
+
+  void favoriteHandler() {
+    isFavarite = !isFavarite;
+    notifyListeners();
+  }
 }

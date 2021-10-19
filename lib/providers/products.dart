@@ -36,7 +36,7 @@ class LoadedProducts with ChangeNotifier {
           'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
     ),
   ];
-  List get produc {
+  List<Product> get produc {
     return [...this._produc];
   }
 

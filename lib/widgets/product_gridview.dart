@@ -1,3 +1,4 @@
+import 'package:ecom_app/models/products.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/products.dart';
@@ -7,7 +8,7 @@ class ProductGridview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var prodsData = Provider.of<LoadedProducts>(context);
-    var prods = prodsData.produc;
+    var prods = prodsData.produc as List<Product>;
     return GridView.builder(
         padding: const EdgeInsets.all(10.0),
         itemCount: LoadedProducts().produc.length,
@@ -17,10 +18,9 @@ class ProductGridview extends StatelessWidget {
             crossAxisSpacing: 10,
             mainAxisSpacing: 10),
         itemBuilder: (context, index) {
-          return ProductItems(
-            imageUrl: prods[index].imageUrl,
-            id: prods[index].id,
-            title: prods[index].title,
+          return ChangeNotifierProvider(
+            create: (context) => prods[index],
+            child: ProductItems(),
           );
         });
   }
