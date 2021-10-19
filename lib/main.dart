@@ -1,3 +1,4 @@
+import 'package:ecom_app/screens/products_overview_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,9 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ecom app',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue, accentColor: Colors.amber),
       home: MyHomePage(title: 'ecom app'),
     );
   }
@@ -28,13 +27,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: widget.title,
-      ),
-      body: Center(
-        child: Text('data'),
-      ),
-    );
+    return ProductsOverView();
   }
 }
