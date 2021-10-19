@@ -1,3 +1,4 @@
+import 'package:ecom_app/screens/product_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductItems extends StatelessWidget {
@@ -8,9 +9,16 @@ class ProductItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridTile(
-      child: Image.network(
-        imageUrl,
-        fit: BoxFit.cover,
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context)
+              .pushNamed(ProductDetails.routeName, arguments: id);
+        },
+        splashColor: Colors.amber,
+        child: Image.network(
+          imageUrl,
+          fit: BoxFit.cover,
+        ),
       ),
       footer: GridTileBar(
         backgroundColor: Colors.black54,

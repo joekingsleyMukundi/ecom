@@ -1,7 +1,8 @@
 import '../models/products.dart';
+import 'package:flutter/material.dart';
 
-class LoadedProducts {
-  List produc = [
+class LoadedProducts with ChangeNotifier {
+  List _produc = [
     Product(
       id: 'p1',
       title: 'Red Shirt',
@@ -35,4 +36,16 @@ class LoadedProducts {
           'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
     ),
   ];
+  List get produc {
+    return [...this._produc];
+  }
+
+  void addProduc(value) {
+    _produc.add(value);
+    notifyListeners();
+  }
+
+  Product getElement(id) {
+    return _produc.firstWhere((item) => item.id == id);
+  }
 }
